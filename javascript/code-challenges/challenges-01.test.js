@@ -12,7 +12,7 @@ const addOne = (arr) => {
   // Solution code here...
 let arr2 = [];
 arr.forEach ((n) => {
-  arr2.push (n + 4);
+  arr2.push (n + 1);
 });
 return arr2;
 }
