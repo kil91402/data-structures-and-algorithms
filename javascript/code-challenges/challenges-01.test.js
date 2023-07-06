@@ -7,10 +7,16 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-
+let arr = [4, 8, 12, 16];
 const addOne = (arr) => {
   // Solution code here...
-};
+let arr2 = [];
+arr.forEach ((n) => {
+  arr2.push (n + 4);
+});
+return arr2;
+}
+console.log(addOne(arr));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -22,6 +28,7 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
