@@ -8,6 +8,12 @@ Write a function called addTwo that takes in an array and adds two to every valu
 
 const addTwo = (arr) => {
   // Solution code here...
+  const newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      newArray.push(arr[i] + 2);
+    }
+    return newArray;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,7 +26,10 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 
 const typeNum = (arr) => {
   // Solution code here...
+  const numbersOnly = arr.filter((element) => typeof element === 'number');
+  return numbersOnly;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -32,7 +41,10 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
-};
+    const filteredArray = arr.filter((element) => element.includes('and'));
+    return filteredArray;
+  };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -44,6 +56,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  const oddNumbers = arr.filter((element) => element % 2 !== 0);
+  return oddNumbers;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +70,10 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  const filteredArray = arr.filter((element) => !forbiddenValues.includes(element));
+  return filteredArray;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -99,6 +116,8 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  const filteredStats = arr.filter((stat) => stat.baseStat > minBaseStat);
+  return filteredStats;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +130,10 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  const filteredStats = arr
+    .filter((stat) => stat.baseStat > minBaseStat)
+    .map((stat) => stat.stat.name);
+  return filteredStats;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,6 +187,8 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  const charactersWithoutChildren = arr.filter((character) => !character.children);
+  return charactersWithoutChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -176,6 +201,9 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  const numericValues = arr.filter((value) => typeof value === 'number');
+  const evenOddArray = numericValues.map((value) => (value % 2 === 0 ? 'even' : 'odd'));
+  return evenOddArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
