@@ -23,9 +23,14 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
-
-};
-
+   const updatedArray = [];
+    for (const animal of arr) {
+      updatedArray.push(callback(animal));
+    }
+    return updatedArray;
+  };
+  
+  
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -50,7 +55,9 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 const sortNumbers = (arr) => {
   // Solution code here...
-
+  arr.sort((a,b) => {
+    return a > b;
+  });
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -62,6 +69,9 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    return a < b;
+  });
   
 };
 
@@ -95,7 +105,10 @@ Here is an example of the input:
 
 const sortByPrice = () => {
   // Solution code here...
-};
+  const sortByPrice = (arr) => {
+    arr.sort((a, b) => a.price - b.price);
+    return arr;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
