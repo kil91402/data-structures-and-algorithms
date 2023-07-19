@@ -13,6 +13,7 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
+  return people.map(person => `${person.firstName} ${person.lastName}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 const addValues = (arr) => {
   // Solution code here...
+  return arr.reduce((acc, currentValue) => acc + currentValue, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,6 +42,7 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
+  return arr.reduce((totPurchase, obj) => totPurchase + obj.purchasePrice, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +55,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce((count, element) => count + 1, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,6 +116,10 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  return arr.reduce((names, character) => {
+    names.push(character.name);
+    return names;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,6 +132,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  return str.split('').reduce((reversed, letters) => letters + reversed, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,6 +186,9 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce((totalChildren, character) => {
+    return totalChildren + (character.children ? character.children.length : 0);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -189,6 +201,16 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  const initialValue = { count: 0, sum: 0 };
+
+  const result = arr.reduce((acc, currentValue) => {
+    return {
+      count: acc.count + 1,
+      sum: acc.sum + currentValue
+    };
+  }, initialValue);
+
+  return result.sum / result.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,6 +232,12 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  return arr.reduce((count, element) => {
+    if (isPrime(element)) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -252,6 +280,10 @@ const snorlaxData = {
 
 const extractStats = (snorlaxData) => {
   // Solution code here...
+  return snorlaxData.stats.reduce((result, statData) => {
+    result[statData.stat.name] = statData.baseStat;
+    return result;
+  }, {});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -266,6 +298,14 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  const charactersWithA = arr.filter(character => character.name.toLowerCase().includes('a'));
+
+  return charactersWithA.reduce((children, character) => {
+    if (character.children) {
+      children.push(...character.children);
+    }
+    return children;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
