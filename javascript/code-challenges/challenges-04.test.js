@@ -23,6 +23,7 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,8 +36,12 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
+  arr.sort(a,b) => {
+    if (a===b) {
+      return 0;
+    }
+  }
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -47,7 +52,9 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
