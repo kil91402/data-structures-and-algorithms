@@ -23,20 +23,9 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
-<<<<<<< HEAD
   
 };
 
-=======
-   const updatedArray = [];
-    for (const animal of arr) {
-      updatedArray.push(callback(animal));
-    }
-    return updatedArray;
-  };
-  
-  
->>>>>>> main
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
