@@ -23,9 +23,20 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+for-each
   
 };
 
+
+   const updatedArray = [];
+    for (const animal of arr) {
+      updatedArray.push(callback(animal));
+    }
+    return updatedArray;
+  };
+  
+  
+ main
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -33,15 +44,22 @@ Write a function called sortNames that takes an array of names and sorts them al
 
 For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
-
 const sortNames = (arr) => {
   // Solution code here...
+ for-each
   arr.sort(a,b) => {
     if (a===b) {
       return 0;
     }
   }
 };
+  arr.sort((a,b) => {
+  return a > b;
+});
+
+return(arr);
+
+ main
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -49,13 +67,19 @@ Write a function called sortNumbers that takes an array of numbers and sorts the
 
 HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
-
 const sortNumbers = (arr) => {
   // Solution code here...
+ for-each
 
 };
 
 
+
+  arr.sort((a,b) => {
+    return a > b;
+  });
+};
+main
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -66,7 +90,12 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    return a < b;
+  });
+  
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -95,9 +124,12 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
+const sortByPrice = () => {
   // Solution code here...
-};
+  const sortByPrice = (arr) => {
+    arr.sort((a, b) => a.price - b.price);
+    return arr;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -191,7 +223,7 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = (arr) => {
+const sortMeetingsByDay = (_arr) => {
   // Solution code here...
 };
 
