@@ -26,7 +26,14 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
+  starWarsArr.forEach((character) => {
+    character.height = parseInt(character.height);
+  });
+  starWarsArr.sort((a, b) => b.height - a.height);
+  
+  return starWarsArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -36,7 +43,17 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  const removeThree = (idx, arr) => {
+    if (idx < 0 || idx >= arr.length) {
+      return arr;
+    };
+  }
+
+arr.splice(idx, 3);
+
+return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -46,6 +63,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
+  return arr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,6 +82,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for (let i = 0; i <= str.length; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -77,6 +98,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return str.split('');
 };
 
 
@@ -124,7 +146,12 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  return result;
+ for (const ingredient of recipe.ingredients) {
+    const firstSpaceIndex = ingredient.indexOf(' ');
+    const foodItem = ingredient.slice(firstSpaceIndex + 1);
+    result.push(foodItem);
+  }
+    return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,6 +165,11 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  for (const ingredient of recipe.ingredients) {
+    const ingredientArr = ingredient.split(' ');
+    const foodItem = ingredientArr.slice(1).join(' ');
+    result.push(foodItem);
+  }
   return result;
 };
 
@@ -154,6 +186,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  for (const step of recipe.steps) {
+    const stepArr = step.split(' ');
+    const actionVerb = stepArr[0];
+    result.push(actionVerb);
+  }
   return result;
 };
 
@@ -172,6 +209,12 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] % 2 === 0) {
+      // Remove even element at index i
+      arr.splice(i, 1);
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,6 +234,13 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  if (numberOfCharacters < 0) {
+    return str;
+  } else if (numberOfCharacters >= str.length) {
+    return '';
+  } else {
+    return str.slice(0, -numberOfCharacters);
+  }
 };
 
 
@@ -203,6 +253,13 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  const values = str.split(',');
+  for (const value of values) {
+    const num = parseFloat(value);
+    if (!isNaN(num)) {
+      total += num;
+    }
+  }
   return total;
 };
 
@@ -217,6 +274,7 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  return str.replace(/[aeiou]/gi, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -231,6 +289,11 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  const vowelsPattern = /[aeiou]/gi;
+  const removedVowels = str.match(vowelsPattern);
+  const modifiedString = str.replace(vowelsPattern, '');
+  const sortedVowels = removedVowels ? removedVowels.sort().join('') : '';
+  return [modifiedString, sortedVowels];
 };
 
 /* ------------------------------------------------------------------------------------------------
