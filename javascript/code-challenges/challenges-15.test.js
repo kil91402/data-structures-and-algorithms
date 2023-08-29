@@ -129,7 +129,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
-  return arr.sort((a, b) => a[property] - b[property]);
+  return arr.sort((a, b) => a[property].localeCompare(b[property]));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +146,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  const regex = /^https:\/\/.+$/;
+  return regex.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -169,6 +171,25 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  const checkLine = (a, b, c) => a === b && b === c && a !== "";
+
+  for (let i = 0; i < 3; i++) {
+    if (
+      checkLine(board[i][0], board[i][1], board[i][2]) ||
+      checkLine(board[0][i], board[1][i], board[2][i])
+    ) {
+      return true;
+    }
+  }
+
+  if (
+    checkLine(board[0][0], board[1][1], board[2][2]) ||
+    checkLine(board[0][2], board[1][1], board[2][0])
+  ) {
+    return true;
+  }
+
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
